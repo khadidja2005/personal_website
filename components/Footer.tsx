@@ -1,5 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import {footerLinks} from "../constants/index"
 
 const Footer = () => {
   return (
@@ -16,8 +18,35 @@ const Footer = () => {
           <p className=' text-base text-gray-700'>Carhub <br/> All rights reserved &copy;</p>
         </div>
         <div className='footer__links'>
+          {footerLinks.map((link) => (
+           <div key={link.title} className='footer__link '>
+            <h3 className='font-bold'>{link.title}</h3>
+            {link.links.map((item)=> (
+             <Link key={item.title} className=' text-gray-500' href={item.url}>
+              {item.title}
+             </Link>
+            ))
+            }
+           </div>
+          ))}
         </div>
-      </div> 
+      </div>  
+        <div className=' flex justify-between 
+        items-center flex-wrap mt-10 
+        border-t border-gray-100
+         sm:px-16 px-6 py-10'>
+          <p >@copyright2023 , CARHUB all rights reserved</p>
+          <div className='.footer__copyrights-link'>
+            <Link className=' text-gray-500 mx-4'
+            href={"/"} >
+              Privacy policy
+            </Link>
+            <Link className=' text-gray-500 mx-2'
+            href={"/"} >
+              Terms of use
+            </Link>
+          </div>
+        </div>
     </footer>
   )
 }
