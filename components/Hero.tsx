@@ -7,7 +7,6 @@ import background_hero from "../public/hero-bg.png";
 
 const Hero = () => {
     const handelscroll = ()=> {
-
     }
   return (
     <div className='hero overflow-hidden'>
